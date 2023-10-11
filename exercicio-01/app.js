@@ -81,7 +81,7 @@ matemáticas e strings (textos) em breve =)
 
 const ten = 10
 
-console.log(`Em ${currentYear + 10}, estarei com ${myAge + 10} anos.`)
+console.log(`Em ${currentYear + ten}, estarei com ${myAge + ten} anos.`)
 
 /*
 10 - Abra o site abaixo no browser e faça o seguinte:
