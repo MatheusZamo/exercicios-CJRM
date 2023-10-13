@@ -109,7 +109,7 @@ const winterMessage = 'o inverno está chegando'
 - Exiba, no console, o index do caractere "v" da "winterMessage";
 */
 
-//console.log(winterMessage[4])
+//console.log(winterMessage.indexOf('v'))
 
 /*
 12 - Comente o console.log acima, e,
@@ -219,6 +219,8 @@ const bookMessage = '\'O Conto da Aia\' é um dos livros mais vendidos da décad
 */
 
 const name = 'walter white'
+let newName = name.replace('walter white','Walter White')
+//console.log(newName)
 
 /*
 22 - Comente o console.log acima, e,
@@ -229,3 +231,5 @@ const name = 'walter white'
 - Não modifique a string da const "name";
 - Exiba a "newName" no console;
 */
+ newName = `${name.replace('walter white','Walter White')}`
+ 
