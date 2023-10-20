@@ -48,17 +48,19 @@ if(fruits.includes('abacaxi')){
   lógico precisam ter a constante especificada. Exemplo: hour > x && hour < y.
 */
 
-/*
-const hour = 6
 
-if(hour >= 6){
+const hour = 6
+const isMorning = hour >= 6 && hour <= 11
+const isAfternoon = hour >= 12 && hour <= 17
+/*
+if(isMorning){
   console.log('Bom dia')
-}else if(hour >= 12){
+}else if(isAfternoon){
   console.log('Boa tarde')
 }else{
   console.log('Boa noite')
 }
-*/ 
+*/
 
 /*
   03
@@ -85,8 +87,8 @@ if(freeEntrance){
 }else{
   console.log(entry)
 }
-
 */
+
 /*
   04
 
@@ -101,8 +103,11 @@ const numbers = [7, 92, 34, 46, 90, 25, 11, 3, 89, 76, 99]
 newArray = []
 
 for(let i = 0;i <= numbers.length;i++){
-  if(numbers[i] >= 11 && numbers[i] <= 90){
-    newArray.push(numbers[i])
+  let number = numbers[i]
+  let numbersBetween11And90 = number >= 11 && number <= 90
+
+  if(numbersBetween11And90){
+    newArray.push(number)
   }
 }
 
@@ -127,16 +132,21 @@ let numberss = 0
 let strings = 0
 
 for(let i = 0;i <= crazyArray.length;i++){
-  if(typeof crazyArray[i] === 'boolean'){
-    boleans += 1
+  const typeOfItem = typeof crazyArray[i]
+  const isItemANumber = typeOfItem === 'number'
+  const isItemABoolean = typeOfItem === 'boolean'
+  const isItemAString = typeOfItem === 'string'
+
+  if(isItemABoolean){
+    boleans++
   }
   
-  if(typeof crazyArray[i] === 'number'){
-    numberss += 1
+  if(isItemANumber){
+    numberss++
   }
   
-  if(typeof crazyArray[i] === 'string'){
-    strings +=1
+  if(isItemAString){
+    strings++
   }
 }
 
@@ -166,13 +176,17 @@ let oddNumbers = []
 const randomNumbers = [73, 4, 67, 10, 31, 58]
 
 for(let i = 0;i <= randomNumbers.length;i++){
-  if(randomNumbers[i] % 2 === 0){
-    pairNumbers.push(randomNumbers[i])
-  }
+  const number = randomNumbers[i]
+  const isPairNumber =number % 2 === 0
 
-  if(randomNumbers[i] % 2 === 1){
-    oddNumbers.push(randomNumbers[i])
+  if(isPairNumber){
+    pairNumbers.push(number)
+  }else{
+    oddNumbers.push(number)
   }
 }
 
-//console.log(`Numeros ímpares: ${oddNumbers.join().replace(',31',' e 31')}. Números pares: ${pairNumbers.join().replace(',58',' e 58')}.`)
+const oddNumbersString = oddNumbers.join(', ').replace(', 31',' e 31')
+const pairNumbersString = pairNumbers.join(', ').replace(', 58',' e 58')
+
+//console.log(`Numeros ímpares: ${oddNumbersString}. Números pares: ${pairNumbersString}.`)
