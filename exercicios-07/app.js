@@ -34,14 +34,19 @@ const animals = ['macaco', 'tucano', 'elefante', 'pavão', 'hipopótamo']
 const randomNumbers = [59, 61, 73, 57, 35, 73, 21, 87, 43]
 
 let sum = 0
+const limit = 400
 
+/*
 for(let i = 0;i < randomNumbers.length; i++){
+  if(sum > limit){
+    console.log(`A soma ultrapassou ${limit}. Até aqui, o valor atual é ${sum}.`)
+    break
+  }
+  
   sum += randomNumbers[i]
 }
-
-if(sum > 400){
-  //console.log(`A soma ultrapassou 400. Até aqui, o valor atual é ${sum}.`)
-}
+console.log(sum)
+*/
 
 /*
   04
@@ -57,10 +62,11 @@ const sentence = ['A', 'certeza', 'dúvida', 'é', 'o', 'princípio', 'da', 'sab
 let phrase = ''
 
 for(let i = 0;i < sentence.length; i++){
-  if(sentence[i] === 'certeza'){
+  const word = sentence[i]
+  if(word === 'certeza'){
     continue
   }else{
-    phrase += ` ${sentence[i]}`
+    phrase += `${word} `
   }
 }
 
@@ -83,15 +89,39 @@ for(let i = 0;i < sentence.length; i++){
 
 const randomValues = [57, false, 'JS', [], true, 'HTML', 31, null, false, 'CSS', 97, true, 'Git', 11, 'sticker', false, 'GitHub', true, null]
 
-let isString = []
+let stringAmount = 0
+let booleanAmount = 0
+let totalIterations = 0
+let firstFourStrings = []
 
 for(let i = 0; i < randomValues.length;i++){
-  if(typeof randomValues[i] === 'string'){
-    isString.push(randomValues[i])
-  }
-}
+  const item = randomValues[i]
+  const typeOfItem = typeof item
+  const isABoolean = typeOfItem === 'boolean'
+  const isAString = typeOfItem === 'string'
 
-console.log(isString)
+  if(stringAmount === 4){
+    break
+  }
+
+  if(isAString){
+    stringAmount++
+    firstFourStrings.push(item)
+  }
+
+  if(isABoolean){
+    booleanAmount++
+  }
+  totalIterations++
+}
+const lastItem = firstFourStrings[firstFourStrings.length - 1]
+const fourStrings = firstFourStrings.join(', ').replace(`, ${lastItem}`,` e ${lastItem}`)
+
+/*console.log(`3 informações sobre o array randomValues:
+  - As primeiras 4 strings são ${fourStrings};
+  - Até que as primeiras 4 strings fossem iteradas, ${booleanAmount} booleans foram iterados;
+  - O array foi iterado por ${totalIterations} vezes.`)
+  */
 /*
   06
 
@@ -113,24 +143,25 @@ console.log(isString)
 */
 
  const drinkType = 'água'
- /*
+ 
+ let drinkMessage = null
 
  switch(drinkType){
   case 'suco' : 
-    console.log('Bebida produzida do líquido extraído de frutos.')
+    drinkMessage = 'Bebida produzida do líquido extraído de frutos.'
     break
   case 'refrigerante':
-    console.log("Bebida não alcoólica e não fermentada, fabricada industrialmente, à base de água mineral e açúcar.")
+    drinkMessage = "Bebida não alcoólica e não fermentada, fabricada industrialmente, à base de água mineral e açúcar."
     break
   case 'água':
-    console.log("Substância química cujas moléculas são formadas por dois átomos de hidrogênio e um de oxigênio.")
+    drinkMessage = "Substância química cujas moléculas são formadas por dois átomos de hidrogênio e um de oxigênio."
     break
   default :
-    console.log("Bebida desconhecida.")
+    drinkMessage = "Bebida desconhecida."
 
  }
-
- */
+//console.log(drinkMessage)
+ 
 /*
   07
 
@@ -139,7 +170,7 @@ console.log(isString)
     para testar o switch que você escreveu.
 */
 
-const a = 2
+const number = 2
 
 // if (a === 0) {
 //   console.log(`O valor de "a" é ${a}`)
@@ -149,16 +180,17 @@ const a = 2
 //   console.log('O valor de "a" é qualquer número, exceto 0 e 1')
 // }
 
+const message = 'O valor de "number" é'
+
 /*
-switch(a){
+switch(number){
   case 0:
-    console.log(`O valor de "a" é ${a}`)
+    console.log(`${message} ${number}`)
     break
   case 1:
-    console.log(`O valor de "a" é ${a}`)
+    console.log(`${message} ${number}`)
     break
   default:
-    console.log('O valor de "a" é qualquer número, exceto 0 e 1')
+    console.log(`${message} qualquer número, exceto 0 e 1`)
 }
-
 */
