@@ -51,16 +51,17 @@ for(let i = 1; i <= 7; i++){
 
 const millennialWords = ['lol', 'yolo', 'troll', 'stalkear', 'selfie', 'influencer', 'crush', 'fitness', 'hater', 'bae', 'random', 'kawaii', 'outfit', 'mood', 'fail']
 
-let uppercaseLetters = []
+const transformingLetters = (words) => {
+  let uppercaseLetters = []
 
-const transformingLetters = (word) => word.toUpperCase()
-
-for(let i = 0; i < millennialWords.length; i++){
- let  receivedWord =  transformingLetters(millennialWords[i])
- uppercaseLetters.push(receivedWord)
+  for(let i = 0; i < words.length; i++){
+    const wordInUpperCase = words[i].toUpperCase()
+    uppercaseLetters.push(wordInUpperCase)
+   }
+   return uppercaseLetters
 }
 
-//console.log(uppercaseLetters)
+//console.log(transformingLetters(millennialWords))
 /*
   05
 
@@ -74,16 +75,17 @@ for(let i = 0; i < millennialWords.length; i++){
 
 const randomNumbers = [-2, 93, 34, -1, 1, 93, 11, -7, 47, -3]
 
-let positiveNumbers = []
-let negativeNumbers = []
+const checkNumbers = (number) => {
+  let positiveNumbers = 0
+  let negativeNumbers = 0
 
-const checkNumbers = (number) => number > 0 ? positiveNumbers.push(number) : negativeNumbers.push(number)
-
-for(let i = 0; i < randomNumbers.length; i++){
-  checkNumbers(randomNumbers[i])
+  for(let i = 0; i < number.length; i++){
+    number[i] > 0 ? positiveNumbers++ : negativeNumbers++
+  }
+ return `O array "randomNumbers" possui ${number.length} números, sendo ${positiveNumbers} positivos e ${negativeNumbers} negativos.`
 }
 
-//console.log(`O array "randomNumbers" possui ${randomNumbers.length} números, sendo ${positiveNumbers.length} positivos e ${negativeNumbers.length} negativos.`)
+//console.log(checkNumbers(randomNumbers))
 
 /*
   06
@@ -95,19 +97,23 @@ for(let i = 0; i < randomNumbers.length; i++){
     função.
 */
 
-let oddNumbers = []
-
 const getOddNumbers = (number) => {
+  let oddNumbers = []
+
   for(let i = 0; i < number.length; i++){
-    if(number[i] % 2 === 1){
-      oddNumbers.push(number[i])
+    const currentNumber = number[i]
+    const isOddNumber = currentNumber % 2 !== 0
+
+    if(isOddNumber){
+      oddNumbers.push(currentNumber)
     }
   }
+  return oddNumbers
 }
 
-getOddNumbers([83, 52, 31, 73, 98, 37, 61, 56, 12, 24, 35, 3, 34, 80, 42])
+//console.log(getOddNumbers([83, 52, 31, 73, 98, 37, 61, 56, 12, 24, 35, 3, 34, 80, 42]))
 
-//console.log(oddNumbers)
+
 
 /*
   07
@@ -146,9 +152,11 @@ const functions = [
   function () { return 'Ocidentais.' }
 ]
 
-let words = []
+let sentence = ''
+
 for(let i = 0; i < functions.length; i++){
-  words.push(functions[i]())
+  const string = `${functions[i]()} `
+  sentence += string
 }
 
-//console.log(words.join(' '))
+//console.log(sentence)
