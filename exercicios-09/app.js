@@ -117,7 +117,10 @@ const checkValue = element => element === null
     argumento a função que exibe seu nome no console e veja se o nome realmente  
     foi exibido.
 */
+const displayConsole = event => event
+const callback = element => console.log(element)
 
+//displayConsole(callback('Matheus'))
 /*
   10
 
@@ -128,7 +131,10 @@ const checkValue = element => element === null
   - Faça com que a invocação da função descrita no 1º item deste exercício (10)  
     resulte no triplo de 33.
 */
+const tripling = (event) => event
+const callbackTripling = (number) => number * 3 
 
+//console.log(tripling(callbackTripling(33)))
 /*
   11
 
@@ -140,6 +146,11 @@ const checkValue = element => element === null
 
 const numbers = [1, 2, 3]
 
+numbers.forEach((number, index, array) => {
+  //index += 1
+  //console.log(`O ${index}º item do array [${array}] é ${number}`)
+})
+
 /*
   12
 
@@ -150,10 +161,14 @@ const numbers = [1, 2, 3]
 
 const letters = ['v', 'e', 'p']
 let lettersCopy = []
-
+/*
 for (let i = 0; i < letters.length; i++) {
   lettersCopy.push(letters[i])
 }
+*/
+letters.forEach(letter => lettersCopy.push(letter))
+
+//console.log(lettersCopy)
 
 /*
   13
@@ -184,6 +199,14 @@ const review = [
 
 let paragraphs = ''
 
+review.forEach((sentence) => {
+  const templateHTML = `
+    <p>${sentence}</p> 
+  `
+   paragraphs += templateHTML
+})
+
+
 section.innerHTML = paragraphs
 
 /*
@@ -206,3 +229,31 @@ section.innerHTML = paragraphs
     pelo restante da quantidade de pessoas que curtiram o post (além das duas  
     pessoas já mencionadas no início da mensagem).
 */
+
+const names = ['Oliver','Emma','Noah','William','Ethan'] 
+
+const postLikes = (persons) => {
+  const amountOfPeople = persons.length
+
+  if(amountOfPeople === 0){
+    console.log("Ninguém curtiu isso")
+  }
+
+  if(amountOfPeople === 1){
+    console.log(`${persons} curtiu isso`)
+  }
+
+  if(amountOfPeople === 2){
+     console.log(`${persons[0]} e ${persons[1]} curtiram isso`)
+  }
+
+  if(amountOfPeople === 3){
+    console.log(`${persons[0]}, ${persons[1]} e ${persons[2]} curtiram isso`)
+ }
+
+ if(amountOfPeople >= 4){
+  console.log(`${persons[0]}, ${persons[1]} e mais ${amountOfPeople - 2} pessoas curtiram isso`)
+}
+}
+
+//postLikes(names)
