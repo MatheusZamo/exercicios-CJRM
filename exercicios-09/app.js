@@ -19,7 +19,7 @@ function convertToString (value) {
 
 const convertString = value => String(value)
 
-//console.log(convertString('banana'))
+//console.log(convertString(true))
 
 /*
   02
@@ -146,10 +146,14 @@ const callbackTripling = (number) => number * 3
 
 const numbers = [1, 2, 3]
 
-numbers.forEach((number, index, array) => {
-  //index += 1
-  //console.log(`O ${index}º item do array [${array}] é ${number}`)
-})
+const showNumbersInfo = (number, index, array) => {
+  const itemPosition = index + 1
+  const items = array.join(', ')
+
+  console.log(`O ${itemPosition}º item do array [${items}] é ${number}`)
+}
+
+//numbers.forEach(showNumbersInfo)
 
 /*
   12
@@ -199,13 +203,9 @@ const review = [
 
 let paragraphs = ''
 
-review.forEach((sentence) => {
-  const templateHTML = `
-    <p>${sentence}</p> 
-  `
-   paragraphs += templateHTML
-})
+const createParagraphs = (sentence) => paragraphs += `<p>${sentence}</p>`
 
+review.forEach(createParagraphs)
 
 section.innerHTML = paragraphs
 
@@ -230,30 +230,60 @@ section.innerHTML = paragraphs
     pessoas já mencionadas no início da mensagem).
 */
 
-const names = ['Oliver','Emma','Noah','William','Ethan'] 
+const names = ['William','Ethan','Noah','Emma','Oliver'] 
+
+/*
+//Resolução com ifs 
 
 const postLikes = (persons) => {
   const amountOfPeople = persons.length
+  const personOne = persons[0]
+  const personTwo = persons[1]
+  const personThird = persons[2]
+  const totalPersonMinuTwo = persons.length - 2
 
   if(amountOfPeople === 0){
     console.log("Ninguém curtiu isso")
   }
 
   if(amountOfPeople === 1){
-    console.log(`${persons} curtiu isso`)
+    console.log(`${personOne} curtiu isso`)
   }
 
   if(amountOfPeople === 2){
-     console.log(`${persons[0]} e ${persons[1]} curtiram isso`)
+     console.log(`${personOne} e ${personTwo} curtiram isso`)
   }
 
   if(amountOfPeople === 3){
-    console.log(`${persons[0]}, ${persons[1]} e ${persons[2]} curtiram isso`)
+    console.log(`${personOne}, ${personTwo} e ${personThird} curtiram isso`)
  }
 
  if(amountOfPeople >= 4){
-  console.log(`${persons[0]}, ${persons[1]} e mais ${amountOfPeople - 2} pessoas curtiram isso`)
+  console.log(`${personOne}, ${personTwo} e mais ${totalPersonMinuTwo} pessoas curtiram isso`)
 }
+}
+
+*/
+
+const postLikes = (persons) => {
+  const personOne = persons[0]
+  const personTwo = persons[1]
+  const personThird = persons[2]
+  const totalPersonMinuTwo = persons.length - 2
+
+  switch(persons.length){
+    case 0:
+      return console.log("Ninguém curtiu isso")
+    case 1:
+      return console.log(`${personOne} curtiu isso`)
+    case 2:
+      return console.log(`${personOne} e ${personTwo} curtiram isso`)
+    case 3:
+      return console.log(`${personOne}, ${personTwo} e ${personThird} curtiram isso`)
+    default:
+      return console.log(`${personOne}, ${personTwo} e mais ${totalPersonMinuTwo} pessoas curtiram isso`)
+  }
+
 }
 
 //postLikes(names)
