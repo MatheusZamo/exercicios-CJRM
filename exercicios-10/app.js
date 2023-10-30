@@ -14,9 +14,7 @@ const cat = {
   age: 4,
   color: 'Black',
   bestFriends : ['Jack','Simba','Bella','Lily'],
-  sound : function(){
-    return 'Meeeeow'
-  }
+  sound : () => 'Meeeeow'
 }
 //console.log(cat,cat.sound())
 /*
@@ -36,7 +34,7 @@ const cat = {
   - Adicione 2 anos à idade do gato e exiba a idade atualizada no console.
 */
 
-cat.age = 2
+cat.age += 2
 //console.log(cat.age)
 
 /*
@@ -60,7 +58,10 @@ addNewFriend('Jasper')
     colchetes.
 */
 
-cat['color'] = 'white'
+const changeColor = object => object['color'] += ` e white`
+
+changeColor(cat)
+
 //console.log(cat['color'])
 
 /*
@@ -89,9 +90,7 @@ const dog = {
   age: 6,
   color: 'Beige',
   bestFriends: ['Charlie','Cooper','Lucy'],
-  sound: function(){
-    return 'WooonWooon '
-  }
+  sound: () => 'Wooooof '
 }
 
 const sumAge = () => {
@@ -112,22 +111,10 @@ const isAnSUV = car => {
   }
 
   return false
-}*/
-const isAnSUV = car => {
-  let returning = false
-
-  const cars = ['Honda HR-V','Jeep Renegade','Ford EcoSport','Hyundai iX35']
-  
-  const checkingCar = (nameCar) => {
-    if(nameCar === car){
-      returning = true
-    }
-  }
-
-  cars.forEach(checkingCar)
-
-  return returning
 }
+*/
+
+const isAnSUV = car => ['Honda HR-V','Jeep Renegade','Ford EcoSport','Hyundai iX35'].includes(car)
 
 //console.log(isAnSUV('Honda Civic'))
 //console.log(isAnSUV('Ford EcoSport'))
@@ -146,29 +133,16 @@ const isAnSUV = car => {
 */
 
 const checkType = type =>{
- const types = [
-  {
-    name : null,
-    message : 'Seta, explicitamente, uma variável sem valor.'
-  },
-  {
-    name: undefined,
-    message: 'Representa um valor não-setado.'
-  },
-  {
-    name: 'object',
-    message: 'Arrays, Datas, Objetos literais, Funções, etc.'
-  }
- ]
-
- const messageType = event => {
-  if(event.name === type){
-   console.log(event.message)
-  }
- }
-
- types.forEach(messageType)
-
+const obj = {
+  null: 'Seta, explicitamente, uma variável sem valor.',
+  undefined: 'Representa um valor não-setado.',
+  object: 'Arrays, Datas, Objetos literais, Funções, etc.'
 }
 
-//checkType(null)
+return obj[type]
+}
+/*
+console.log(checkType('null'))
+console.log(checkType('undefined'))
+console.log(checkType('object'))
+*/
