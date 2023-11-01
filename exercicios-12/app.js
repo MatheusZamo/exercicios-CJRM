@@ -27,20 +27,16 @@ const best2019Movies = [
   { title: 'A Vida Invisível', directedBy: 'Karim Aïnouz' }
 ]
 
-const sentence = 'Segundo o site Omelete, os melhores filmes de 2019 são:'
-
-let movies = []
+let sentence = 'Segundo o site Omelete, os melhores filmes de 2019 são:'
 
 const theBest2019 = (movie) => {
-  const info = `- ${movie.title}, dirigido por ${movie.directedBy}`
-  movies.push(info)
+  sentence += `
+  - ${movie.title}, dirigido por ${movie.directedBy}`
 }
 
 best2019Movies.forEach(theBest2019)
 
-// console.log(`${sentence}
-// ${movies.join(`
-// `)}`)
+//console.log(sentence)
 
 /*
   02
@@ -76,19 +72,13 @@ const youtubeUser = {
     country: 'Brasil'
   },
   displayMessage () {
-    const sentence = 'Vídeos recentes de Roger Melo:'
-
-    let displayVideos = []
+    console.log(`Vídeos recentes de ${this.name}:`)
 
     const getVideo = (video) => {
-      displayVideos.push(video.title)
+      console.log(video.title)
     }
 
     this.videos.recentVideos.forEach(getVideo)
-
-    console.log(`${sentence}
-    ${displayVideos.join(`
-    `)}`)
   }
 }
 
@@ -109,6 +99,7 @@ const youtubeUser = {
 */
 
 const firstNumber = 8.3
+//console.log(Math.ceil(firstNumber))
 
 /*
   05
@@ -146,4 +137,4 @@ const fourthNumber = 5.5
     aleatório de 0 à 10, incluindo 0 e 10.
 */
 
-//console.log(Math.floor(Math.random() * 11))
+//console.log(Math.round(Math.random() * 10))
