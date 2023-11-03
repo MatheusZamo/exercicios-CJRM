@@ -9,17 +9,14 @@
 */
 
 const getCatInfo = () => {
-  const obj = {
-    name : 'Marcos',
-    age : 3,
-    color : 'Cinza'
-  }
-  return obj
+    const name = 'Marcos'
+    let age = 3
+    const color = 'Cinza'
+
+  return {name,age,color}
 }
 
-const name = getCatInfo().name
-const age = getCatInfo().age
-const color = getCatInfo().color
+const {name,age,color} = getCatInfo()
 
 //console.log(`${name} é um gato ${color} de ${age} anos.`)
 
@@ -38,8 +35,9 @@ const external = () => {
     const extraInternal = () => {
       console.log(movie.toUpperCase())
     }
+    extraInternal()
   }
-  console.log(movie.toUpperCase())
+  internal()
 }
 
 //external()
