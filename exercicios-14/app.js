@@ -5,7 +5,7 @@
     maiúsculas.
 */
 
-let h1 = document.querySelector('h1')
+const h1 = document.querySelector('h1')
 h1.innerText = h1.innerText.toUpperCase()
 
 /*
@@ -17,12 +17,9 @@ h1.innerText = h1.innerText.toUpperCase()
 
 const numbers = [ 53, 24, 3, 8, 1, 6, 57, 80, 77, 98, 55 ]
 
-const ul = document.querySelector('ul')
+const ul = document.querySelector('.numbers')
 
-const addNumber = (number) => {
-  const li = `<li>${number}</li>`
-  ul.innerHTML += li
-}
+const addNumber = number => ul.innerHTML +=`<li class='number'>${number}</li>`
 
 numbers.forEach(addNumber)
 
@@ -34,7 +31,7 @@ numbers.forEach(addNumber)
     - Se o número é ímpar, exiba-o na cor "pink".
 */
 
-const lis = document.querySelectorAll('li')
+const lis = document.querySelectorAll('.number')
 
 const definingColor = number => number.innerText % 2 === 0 ? number.style.color = "lightblue" : number.style.color = "pink"
 
@@ -94,4 +91,4 @@ body.classList.remove('body-background')
   - Se o link da página possuir uma classe "link", remova-a;
   - Não utilize o método remove() para fazer isso.
 */
-link.removeAttribute('class')
+link.classList.toggle('link')
