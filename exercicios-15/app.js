@@ -22,7 +22,7 @@ lis.forEach(insertClass)
 */
 
 const h2 = document.querySelector('h2')
-//console.log(h2.parentNode)
+//console.log(h2.parentElement)
 
 /*
   03
@@ -48,11 +48,11 @@ const h1 = document.querySelector('h1')
     exibida no console.
 */
 
-lis.forEach((element) => {
-  element.addEventListener('click',(item) => {
-    console.log(item.target.innerText)
-  })
-})
+const showLis = event => console.log(event.target.innerText)
+
+const addClickEvent = element => element.addEventListener('click',showLis)
+
+lis.forEach(addClickEvent)
 
 /*
   06
@@ -74,13 +74,11 @@ const videos = [{
 
 const button = document.querySelector('button')
 
-const insertNewVideo = (video) => {
-  button.addEventListener('click',() => {
-    ul.innerHTML += `<li>${video.name}</li>`
-  })
-}
+const insertNewVideo = ({name}) => ul.innerHTML += `<li>${name}</li>`
 
-videos.forEach(insertNewVideo)
+const buttonEvent = () => videos.forEach(insertNewVideo)
+
+button.addEventListener('click',buttonEvent)
 
 /*
   07
