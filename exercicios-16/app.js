@@ -11,8 +11,8 @@ const elementsInsideDiv = Array.from(div.children)
 
 elementsInsideDiv.forEach(element => {
   element.addEventListener('click', (event) => {
-    const tagClicked = event.target.nodeName
-
+    const tagClicked = event.target.tagName.toLowerCase()
+    
     h2.innerText = `Clicou no ${tagClicked} filho da div.`
 
     //console.log(`Clicou no ${tagClicked} filho da div.`)
