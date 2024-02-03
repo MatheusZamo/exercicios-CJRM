@@ -25,18 +25,25 @@ setTimeout(()=> {
 
 const btnInit = document.querySelector('.button-init-counter')
 const btnStop = document.querySelector('.button-stop-counter')
-let counter = document.querySelector('.counter-container')
+
+let counterContainer = document.querySelector('.counter-container')
+let timer = 0
+
+const incrementCounter = () => {
+    counterContainer.innerHTML++
+}
+
+const stopCounter = () => {
+    clearInterval(timer)
+    counterContainer.innerHTML = 0
+}
 
 btnInit.addEventListener('click',() => {
-    const time = setInterval(() => {
+    timer = setInterval(incrementCounter,300)
+})
 
-        btnStop.addEventListener('click',() => {
-            clearInterval(time)
-            counter.innerHTML = 0
-        })
-
-        counter.innerHTML++
-    },300)
+btnStop.addEventListener('click',() => {
+    stopCounter()
 })
 
 
