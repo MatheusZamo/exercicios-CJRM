@@ -23,9 +23,10 @@ const people = [
   { firstName: 'Felipe', lastName: 'Tavares', score: 71 },
   { firstName: 'Eric', lastName: 'Silva', score: 82 }
 ]
-const copyPeople = people.map(person => person)
-const orderingScore = copyPeople.sort((number2,number1) => number2.score - number1.score)
-//console.log(orderingScore)
+const  orderingScore = people
+  .map(({firstName,lastName,score}) => ({firstName,lastName,score }))
+  .sort((number2,number1) => number2.score - number1.score)
+console.log(orderingScore)
 /*
   03
 
@@ -64,7 +65,8 @@ const friends = [
   { id: 5, name: 'Solange', nearMe: false }
 ]
 
-const nearFriends = friends.filter(({nearMe}) => nearMe)
+const nearFriends = friends
+  .filter(({nearMe}) => nearMe)
   .map(({name}) => name)
 //console.log(nearFriends)
 /*
@@ -76,11 +78,9 @@ const nearFriends = friends.filter(({nearMe}) => nearMe)
 
 const numbers = [46, 86, 212, 29, 51, 9, 25, 42, 81]
 
-const sumOfOddNumbers = numbers.filter(number => number % 2 === 1)
-  .reduce((accumulator,item) => {
-    accumulator += item
-    return accumulator
-  },0)
+const sumOfOddNumbers = numbers
+  .filter(number => number % 2 === 1)
+  .reduce((accumulator,item) => accumulator + item,0)
 //console.log(sumOfOddNumbers)
 /*
   07
@@ -103,9 +103,7 @@ const data = [{
   population: 263991379
 }]
 
-const sumOfPopulation = data.filter(({country}) => country != 'China')
-  .reduce((accumulator,{population}) => {
-    accumulator += population
-    return accumulator
-  },0)
+const sumOfPopulation = data
+  .filter(({country}) => country != 'China')
+  .reduce((accumulator,{population}) => accumulator + population,0)
 //console.log(sumOfPopulation)
