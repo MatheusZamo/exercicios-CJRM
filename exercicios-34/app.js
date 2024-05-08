@@ -11,8 +11,17 @@
   - Após implementar a função, implemente outra versão da função. Essa 2ª 
     versão deve fazer o mesmo que a função anterior faz, mas de forma diferente.
 */
-const reverse = string => string.split('').reverse().join('')
-//console.log(reverse('abcd'))
+const getReversedString = string => string
+  .split('')
+  .reverse()
+  .join('')
+
+const reverseString = string => string  
+  .split('')
+  .reduce((acc, item) => item + acc, '')
+
+console.log(getReversedString('abcd'))
+console.log(reverseString('123'))
 /*
   02
   
@@ -28,10 +37,9 @@ numbers.forEach(number => {
     foundNumber = true
   }
 })
-
-console.log(foundNumber)
 */
-//console.log(numbers.includes(15))
+const foundNumber = numbers.includes(15)
+console.log(foundNumber)
 
 /*
   03
